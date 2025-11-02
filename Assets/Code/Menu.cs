@@ -38,7 +38,7 @@ public class Menu : MonoBehaviour
 
     public void TryAgain()
     {
-        //endPanel.SetActive(false);
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 }

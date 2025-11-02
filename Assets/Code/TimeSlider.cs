@@ -15,6 +15,8 @@ public class TimeSlider : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
+
         currentTime = maxTime;
         timeSlider.maxValue = maxTime;
         timeSlider.value = currentTime;
@@ -31,6 +33,7 @@ public class TimeSlider : MonoBehaviour
             ScoreManager.Instance.SaveScore();
             losePanel.SetActive(true);
             bestScore.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
