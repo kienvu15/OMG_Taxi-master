@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour {
 
+    //IUI
+    public GameObject losePanel;
+    public GameObject bestScore;
+
     // Settings
     public float MoveSpeed = 50;
     public float MaxSpeed = 15;
@@ -33,5 +37,15 @@ public class CarController : MonoBehaviour {
         Debug.DrawRay(transform.position, MoveForce.normalized * 3);
         Debug.DrawRay(transform.position, transform.forward * 3, Color.blue);
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Limit"))
+        {
+            ScoreManager.Instance.SaveScore();
+            losePanel.SetActive(true);
+            bestScore.SetActive(true);
+        }
     }
 }
