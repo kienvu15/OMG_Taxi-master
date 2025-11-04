@@ -55,7 +55,10 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt(SCORE_KEY, currentScore);
             PlayerPrefs.Save();
         }
+        UpdateScoreUI();
     }
+
+
 
     public int GetHighScore()
     {

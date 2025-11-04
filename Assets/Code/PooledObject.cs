@@ -28,7 +28,11 @@ public class PooledObject : MonoBehaviour
                 slider.AddTime(bonusTime);
 
             if (ScoreManager.Instance != null)
+            {
                 ScoreManager.Instance.AddScore(1);
+                ScoreManager.Instance.SaveScore();
+            }
+
         }
     }
 
